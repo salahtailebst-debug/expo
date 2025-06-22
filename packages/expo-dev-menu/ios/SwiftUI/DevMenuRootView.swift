@@ -22,7 +22,9 @@ struct DevMenuRootView: View {
           }
         }
       }
+      #if !os(tvOS)
       .background(Color(.systemGroupedBackground))
+      #endif
     }
   }
 }

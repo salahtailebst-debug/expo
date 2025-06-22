@@ -65,7 +65,9 @@ struct DevLauncherNavigationHeader: View {
     }
     .padding(.horizontal)
     .padding(.vertical, 8)
+    #if !os(tvOS)
     .background(Color(.systemBackground))
+    #endif
   }
 
   @ViewBuilder
