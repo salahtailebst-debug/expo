@@ -17,9 +17,11 @@ struct DevMenuRootView: View {
           DevMenuMainView()
             .environmentObject(viewModel)
 
+          #if !os(tvOS)
           if !viewModel.isOnboardingFinished {
             DevMenuOnboardingView(onFinish: viewModel.finishOnboarding)
           }
+          #endif
         }
       }
       #if !os(tvOS)

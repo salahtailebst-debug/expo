@@ -140,7 +140,9 @@ struct SettingsTabView: View {
       VStack(alignment: .leading, spacing: 8) {
         Text(createEASConfigJSON())
           .font(.system(.caption, design: .monospaced))
+        #if !os(tvOS)
           .textSelection(.enabled)
+        #endif
           .padding(.vertical, 4)
       }
     }

@@ -96,7 +96,9 @@ struct DevLauncherNavigationHeader: View {
           .aspectRatio(contentMode: .fill)
       } placeholder: {
         Circle()
+        #if !os(tvOS)
           .fill(Color(.systemGray5))
+        #endif
           .overlay(
             Image(systemName: "person")
               .font(.system(size: 16))
