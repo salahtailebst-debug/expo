@@ -1082,12 +1082,12 @@ export async function setupUpdatesBrickingMeasuresDisabledE2EAppAsync(
 
 export async function setupUpdatesDevClientE2EAppAsync(
   projectRoot: string,
-  { localCliBin, repoRoot }: { localCliBin: string; repoRoot: string }
+  { localCliBin, repoRoot, isTV }: { localCliBin: string; repoRoot: string; isTV?: boolean }
 ) {
   await copyCommonFixturesToProject(
     projectRoot,
     ['tsconfig.json', '.env', 'eas.json', 'maestro', 'includedAssets', 'scripts'],
-    { appJsFileName: 'App.tsx', repoRoot, isTV: false }
+    { appJsFileName: 'App.tsx', repoRoot, isTV: isTV ?? false }
   );
 
   // install extra fonts package
