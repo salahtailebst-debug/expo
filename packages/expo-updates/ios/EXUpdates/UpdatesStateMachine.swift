@@ -410,14 +410,12 @@ internal class UpdatesStateMachine {
         $0.isDownloading = false
         $0.downloadError = nil
         $0.isUpdatePending = true
-        $0.downloadProgress = 0.0
       }
     case .downloadCompleteWithRollback:
       return context.copyAndIncrementSequenceNumber {
         $0.isDownloading = false
         $0.downloadError = nil
         $0.isUpdatePending = true
-        $0.downloadProgress = 0.0
       }
     case let .downloadCompleteWithUpdate(manifest):
       return context.copyAndIncrementSequenceNumber {
@@ -428,13 +426,11 @@ internal class UpdatesStateMachine {
         $0.rollback = nil
         $0.isUpdatePending = true
         $0.isUpdateAvailable = true
-        $0.downloadProgress = 0.0
       }
     case let .downloadError(errorMessage):
       return context.copyAndIncrementSequenceNumber {
         $0.isDownloading = false
         $0.downloadError = ["message": errorMessage]
-        $0.downloadProgress = 0.0
       }
     case .restart:
       return context.copyAndIncrementSequenceNumber {
