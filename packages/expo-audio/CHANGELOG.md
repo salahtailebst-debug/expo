@@ -10,6 +10,7 @@
 
 - [iOS] Fix connected bluetooth devices not playing back recordings. ([#37580](https://github.com/expo/expo/pull/37580) by [@alanjhughes](https://github.com/alanjhughes))
 - [iOS] Exclude setting `.allowBluetooth` on tvOS. ([#37950](https://github.com/expo/expo/pull/37950) by [@alanjhughes](https://github.com/alanjhughes))
+- Add shallow state comparison to prevent unnecessary re-renders in `useAudioRecorderState`.
 
 ### 💡 Others
 
