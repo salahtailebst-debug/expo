@@ -22,6 +22,7 @@ class UpdatesStateContext private constructor(
   val rollback: UpdatesStateContextRollback? = null,
   val checkError: UpdatesStateError? = null,
   val downloadError: UpdatesStateError? = null,
+  val downloadProgress: Double = 0.0,
   val lastCheckForUpdateTime: Date? = null,
   val sequenceNumber: Int
 ) {
@@ -38,6 +39,7 @@ class UpdatesStateContext private constructor(
     rollback: UpdatesStateContextRollback? = null,
     checkError: UpdatesStateError? = null,
     downloadError: UpdatesStateError? = null,
+    downloadProgress: Double = 0.0,
     lastCheckForUpdateTime: Date? = null
   ) : this(
     isStartupProcedureRunning = isStartupProcedureRunning,
@@ -52,6 +54,7 @@ class UpdatesStateContext private constructor(
     rollback = rollback,
     checkError = checkError,
     downloadError = downloadError,
+    downloadProgress = downloadProgress,
     lastCheckForUpdateTime = lastCheckForUpdateTime,
     sequenceNumber = 0
   )
@@ -62,6 +65,7 @@ class UpdatesStateContext private constructor(
     isUpdatePending: Boolean = this.isUpdatePending,
     isChecking: Boolean = this.isChecking,
     isDownloading: Boolean = this.isDownloading,
+    downloadProgress: Double = this.downloadProgress,
     isRestarting: Boolean = this.isRestarting,
     restartCount: Int = this.restartCount,
     latestManifest: JSONObject? = this.latestManifest,
@@ -83,6 +87,7 @@ class UpdatesStateContext private constructor(
     rollback = rollback,
     checkError = checkError,
     downloadError = downloadError,
+    downloadProgress = downloadProgress,
     lastCheckForUpdateTime = lastCheckForUpdateTime,
     sequenceNumber = this.sequenceNumber + 1
   )
